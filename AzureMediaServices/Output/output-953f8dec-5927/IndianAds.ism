@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<smil xmlns="http://www.w3.org/2001/SMIL20/Language">
+  <head>
+    <meta name="clientManifestRelativePath" content="IndianAds.ismc" />
+    <meta name="formats" content="mp4-v3" />
+  </head>
+  <body>
+    <switch>
+      <audio src="IndianAds_320x180_AACAudio_99.mp4" systemBitrate="128000" systemLanguage="und">
+        <param name="systemBitrate" value="128000" valuetype="data" />
+        <param name="trackID" value="2" valuetype="data" />
+        <param name="trackName" value="aac_und_2_128000_2_1" valuetype="data" />
+        <param name="systemLanguage" value="und" valuetype="data" />
+        <param name="trackIndex" value="IndianAds_320x180_AACAudio_99_2.mpi" valuetype="data" />
+      </audio>
+      <video src="IndianAds_640x360_AACAudio_291.mp4" systemBitrate="291774">
+        <param name="systemBitrate" value="291774" valuetype="data" />
+        <param name="trackID" value="1" valuetype="data" />
+        <param name="trackName" value="video" valuetype="data" />
+        <param name="trackIndex" value="IndianAds_640x360_AACAudio_291_1.mpi" valuetype="data" />
+      </video>
+      <video src="IndianAds_480x270_AACAudio_178.mp4" systemBitrate="178031">
+        <param name="systemBitrate" value="178031" valuetype="data" />
+        <param name="trackID" value="1" valuetype="data" />
+        <param name="trackName" value="video" valuetype="data" />
+        <param name="trackIndex" value="IndianAds_480x270_AACAudio_178_1.mpi" valuetype="data" />
+      </video>
+      <video src="IndianAds_320x180_AACAudio_99.mp4" systemBitrate="99341">
+        <param name="systemBitrate" value="99341" valuetype="data" />
+        <param name="trackID" value="1" valuetype="data" />
+        <param name="trackName" value="video" valuetype="data" />
+        <param name="trackIndex" value="IndianAds_320x180_AACAudio_99_1.mpi" valuetype="data" />
+      </video>
+    </switch>
+  </body>
+</smil>

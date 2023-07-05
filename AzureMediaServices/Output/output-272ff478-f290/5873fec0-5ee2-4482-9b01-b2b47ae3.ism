@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<smil xmlns="http://www.w3.org/2001/SMIL20/Language">
+  <head>
+    <meta name="clientManifestRelativePath" content="5873fec0-5ee2-4482-9b01-b2b47ae3.ismc" />
+    <meta name="formats" content="mp4-v3" />
+  </head>
+  <body>
+    <switch>
+      <audio src="5873fec0-5ee2-4482-9b01-b2b47ae3_640x360_AACAudio_352.mp4" systemBitrate="128042" systemLanguage="und">
+        <param name="systemBitrate" value="128042" valuetype="data" />
+        <param name="trackID" value="2" valuetype="data" />
+        <param name="trackName" value="aac_und_2_128042_2_1" valuetype="data" />
+        <param name="systemLanguage" value="und" valuetype="data" />
+        <param name="trackIndex" value="5873fec0-5ee2-4482-9b01-b2b47ae3_640x360_AACAudio_352_2.mpi" valuetype="data" />
+      </audio>
+      <video src="5873fec0-5ee2-4482-9b01-b2b47ae3_1280x720_AACAudio_1052.mp4" systemBitrate="1052385">
+        <param name="systemBitrate" value="1052385" valuetype="data" />
+        <param name="trackID" value="1" valuetype="data" />
+        <param name="trackName" value="video" valuetype="data" />
+        <param name="trackIndex" value="5873fec0-5ee2-4482-9b01-b2b47ae3_1280x720_AACAudio_1052_1.mpi" valuetype="data" />
+      </video>
+      <video src="5873fec0-5ee2-4482-9b01-b2b47ae3_960x540_AACAudio_664.mp4" systemBitrate="664356">
+        <param name="systemBitrate" value="664356" valuetype="data" />
+        <param name="trackID" value="1" valuetype="data" />
+        <param name="trackName" value="video" valuetype="data" />
+        <param name="trackIndex" value="5873fec0-5ee2-4482-9b01-b2b47ae3_960x540_AACAudio_664_1.mpi" valuetype="data" />
+      </video>
+      <video src="5873fec0-5ee2-4482-9b01-b2b47ae3_640x360_AACAudio_352.mp4" systemBitrate="352570">
+        <param name="systemBitrate" value="352570" valuetype="data" />
+        <param name="trackID" value="1" valuetype="data" />
+        <param name="trackName" value="video" valuetype="data" />
+        <param name="trackIndex" value="5873fec0-5ee2-4482-9b01-b2b47ae3_640x360_AACAudio_352_1.mpi" valuetype="data" />
+      </video>
+    </switch>
+  </body>
+</smil>

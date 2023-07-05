@@ -1,0 +1,224 @@
+﻿@using Azure.Core;
+@using AzureMediaServices.Repository;
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+    src="@AzureMediaServices.Repository.AssetRepository.videoUrl"
+*@
+
+@{
+    ViewData["Title"] = "Insights Page";
+}
+
+@{
+    string[] meta = { };
+
+}
+@{
+    var id = ViewContext.RouteData.Values["id"]?.ToString();
+
+}
+@{
+    var repo = new IndexerRepository();
+    var myvar = repo.GetAllVideos(id);
+}
+
+
+
+<link href="https://amp.azure.net/libs/amp/2.3.5/skins/amp-default/azuremediaplayer.min.css" rel="stylesheet">
+<script src="https://amp.azure.net/libs/amp/2.3.5/azuremediaplayer.min.js"></script>
+
+
+
+<div class="d-flex justify-content-center">
+    <video id="azuremediaplayer" class="azuremediaplayer amp-default-skin">
+        <p>Your browser does not support HTML5 video.</p>
+    </video>
+</div>
+<script>
+    var myOptions = {
+        "nativeControlsForTouch": false,
+        controls: true,
+        autoplay: true,
+        width: "820",
+        height: "500",
+        poster: ""
+    };
+
+    var myPlayer = amp("azuremediaplayer", myOptions);
+    myPlayer.src([
+        {
+            src: "@AzureMediaServices.Repository.AssetRepository.videoUrl",
+            type: "application/vnd.ms-sstr+xml"
+        }
+    ]);
+</script>
+
+    <h3 class="m-3 d-flex justify-content-center">@AzureMediaServices.Repository.AssetRepository.videoName</h3>
+    <button id="btnStart" class="btn btn-outline-primary opacity-75 rounded-2 m-2 float-end">Start Indexing</button>
+    <div>
+    @if (ViewBag.IndexedOrNot == "Indexed")
+    {
+        <a asp-route-id="@AzureMediaServices.Repository.AssetRepository.AssetName" asp-controller="Index" asp-action="InsightsDisplay" class="btn btn-outline-primary opacity-75 rounded-2 m-2 float-end">Show Insights</a>
+    }
+
+    </div>
+    <button id="fetchButton" class="btn btn-outline-success opacity-75 rounded-2 m-2">Media Technical Information </button>
+    <a asp-route-id="@AzureMediaServices.Repository.AssetRepository.AssetName" asp-controller="Asset" asp-action="MetaDataForm" class="btn btn-outline-success opacity-75 rounded-2 m-2">MetaData Form</a>
+    <a asp-route-id="@AzureMediaServices.Repository.AssetRepository.AssetName" asp-controller="Form" asp-action="ShowMetadataDisplay" class="btn btn-outline-success opacity-75 rounded-2 m-2">MetaData Display</a>
+
+
+
+<style>
+    #fetchButton{
+        margin-left : 400px;
+    }
+</style>
+
+
+
+
+<div>
+    <div class="row  justify-content-center">
+        <div id="card" class="col-12" style="width: 820px">
+            <h3 id="heading"></h3>
+            <div id="basic">
+                <div id="NameOfVideo" class="m-2"></div>
+                <div id="Duration" class="m-2"></div>
+                <div id="Size" class="m-2"></div>
+            </div>
+            <div id="common">
+                <div id="videoCard">
+                    <h5 id="videoTrack"></h5>
+                    <div id="videoElements">
+                        <div id="WidthHeight" class="m-2"></div>
+                        <div id="LanguageV" class="m-2"></div>
+                        <div id="FrameRate" class="m-2"></div>
+                        <div id="Bitrate" class="m-2"></div>
+                        <div id="PixelFormat" class="m-2"></div>
+                        <div id="Codec" class="m-2"></div>
+                        <div id="CodecLongName" class="m-2"></div>
+                        <div id="TimeBase" class="m-2"></div>
+                        <div id="NumberOfFrames" class="m-2"></div>
+                        <div id="DisplayAspectRatioNumerator" class="m-2"></div>
+                        <div id="DisplayAspectRatioDenominator" class="m-2"></div>
+                        <div id="SampleAspectRatioNumerator" class="m-2"></div>
+                        <div id="SampleAspectRatioDenominator" class="m-2"></div>
+                    </div>
+                </div>
+                <div id="audioCard">
+                    <h5 id="audioTrack"></h5>
+                    <div id="audioElements">
+                        <div id="LanguageA" class="m-2"></div>
+                        <div id="SampleFormat" class="m-2"></div>
+                        <div id="ChannelLayout" class="m-2"></div>
+                        <div id="Channels" class="m-2"></div>
+                        <div id="SamplingRate" class="m-2"></div>
+                        <div id="Bitrate" class="m-2"></div>
+                        <div id="CodecA" class="m-2"></div>
+                        <div id="CodecLongNameA" class="m-2"></div>
+                        <div id="TimeBaseA" class="m-2"></div>
+                        <div id="NumberOfFramesA" class="m-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section scripts {
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btnStart").click(function () {
+                var indexedOrNot;
+            $.ajax({
+                url: "@Url.Action("indexedOrNot", "Index", new{id = @id})",
+                type: "GET",
+                success: function (data) {
+                    console.debug(data);
+                    //window.location.reload() 
+                    indexedOrNot = data;
+                }
+            });
+            console.debug(indexedOrNot);
+                if (indexedOrNot == "true")
+                    {
+                        console.debug("If Works!");
+                        alert("Already Indexed!");
+                       
+                    }
+
+                else {
+                    $.ajax({
+                        url: "@Url.Action("StartIndexing", "Index", new{id = @id})",
+                        type: "GET",
+                        success: function (data) {
+                            console.debug(data);
+                            //window.location.reload()
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#fetchButton").click(function () {
+                $.ajax({
+                    url: "@Url.Action("GetJsonData", "Asset")",
+                    type: "GET",
+                    success: function (data) {
+                        console.debug(data);
+                        var parsedData = JSON.parse(data);
+                        $("#card").addClass('card');
+                        $("#heading").text("Metadata").addClass('text-light card-header text-center text-bg-dark');
+                        $("#common").addClass('d-sm-flex justify-content-between');
+                        $("#videoCard").addClass('col-5 my-2 ms-4 card shadow-lg');
+                        $("#audioCard").addClass('col-5 my-2 me-4 card shadow-lg');
+                        $("#videoTrack").text("Video Metadata").addClass('text-center card-header');
+                        $("#audioTrack").text("Audio Metadata").addClass('text-center card-header');
+
+                        $("#basic").addClass('d-flex justify-content-center')
+                        $("#NameOfVideo").text("Video Name: " + parsedData.AssetFile[0].Name)
+                        $("#Duration").text("Duration: " + parsedData.AssetFile[0].Duration)
+                        $("#Size").text("Size: " + parsedData.AssetFile[0].Size)
+
+                        $("#videoElements").addClass('ms-4');
+                        $("#WidthHeight").text("Width: " + parsedData.AssetFile[0].VideoTracks[0].Width + ", " + "Height: " + parsedData.AssetFile[0].VideoTracks[0].Height);
+                        $("#LanguageV").text("Language of the video: " + parsedData.AssetFile[0].VideoTracks[0].Metadata[1].Language);
+                        $("#FrameRate").text("FrameRate: " + parsedData.AssetFile[0].VideoTracks[0].FrameRate);
+                        $("#Bitrate").text("Bitrate: " + parsedData.AssetFile[0].VideoTracks[0].Bitrate);
+                        $("#PixelFormat").text("PixelFormat: " + parsedData.AssetFile[0].VideoTracks[0].Codec);
+                        $("#Codec").text("Codec: " + parsedData.AssetFile[0].VideoTracks[0].PixelFormat);
+                        $("#CodecLongName").text("CodecLongName: " + parsedData.AssetFile[0].VideoTracks[0].CodecLongName);
+                        $("#TimeBase").text("TimeBase: " + parsedData.AssetFile[0].VideoTracks[0].TimeBase);
+                        $("#NumberOfFrames").text("NumberOfFrames: " + parsedData.AssetFile[0].VideoTracks[0].NumberOfFrames);
+                        $("#DisplayAspectRatioNumerator").text("DisplayAspectRatioNumerator: " + parsedData.AssetFile[0].VideoTracks[0].DisplayAspectRatioNumerator);
+                        $("#DisplayAspectRatioDenominator").text("DisplayAspectRatioDenominator: " + parsedData.AssetFile[0].VideoTracks[0].DisplayAspectRatioDenominator);
+                        $("#SampleAspectRatioNumerator").text("SampleAspectRatioNumerator: " + parsedData.AssetFile[0].VideoTracks[0].SampleAspectRatioNumerator);
+                        $("#SampleAspectRatioDenominator").text("SampleAspectRatioDenominator: " + parsedData.AssetFile[0].VideoTracks[0].SampleAspectRatioDenominator);
+
+                        $("#audioElements").addClass('ms-4');
+                        $("#LanguageA").text("Language of the audio: " + parsedData.AssetFile[0].AudioTracks[0].Metadata[1].value);
+                        $("#SampleFormat").text("SampleFormat: " + parsedData.AssetFile[0].AudioTracks[0].SampleFormat);
+                        $("#ChannelLayout").text("ChannelLayout: " + parsedData.AssetFile[0].AudioTracks[0].ChannelLayout);
+                        $("#Channels").text("Channels: " + parsedData.AssetFile[0].AudioTracks[0].Channels);
+                        $("#SamplingRate").text("SamplingRate: " + parsedData.AssetFile[0].AudioTracks[0].SamplingRate);
+                        $("#Bitrate").text("Bitrate: " + parsedData.AssetFile[0].AudioTracks[0].Bitrate);
+                        $("#CodecA").text("Codec: " + parsedData.AssetFile[0].AudioTracks[0].Codec);
+                        $("#CodecLongNameA").text("CodecLongName: " + parsedData.AssetFile[0].AudioTracks[0].CodecLongName);
+                        $("#TimeBaseA").text("TimeBase: " + parsedData.AssetFile[0].AudioTracks[0].TimeBase);
+                        $("#NumberOfFramesA").text("NumberOfFrames: " + parsedData.AssetFile[0].AudioTracks[0].NumberOfFrames);
+                    }
+                });
+            });
+        });
+    </script>
+
+}

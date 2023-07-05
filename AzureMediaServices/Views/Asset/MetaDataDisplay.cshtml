@@ -1,0 +1,140 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="card">
+    <div class="text-light card-header text-center text-bg-dark">
+        MetaData Display 
+    </div>
+    <div class="card-body">
+        <div class="row d-inline d-flex justify-content mx-2">
+            <div class="col-5">
+                <label for="language">Language : </label>
+                @ViewBag.Metadata.Language
+            </div>
+            <div class="col-1"></div>
+            <div class="col-5">
+                <label for="contentCategory">Content Category : </label>
+                @ViewBag.Metadata.ContentCategory
+            </div>
+        </div>
+        <div class="row mx-2">
+            <div class="col-7">
+                <label for="mainTitle">Main Title : </label>
+                @ViewBag.Metadata.MainTitle
+            </div>
+        </div>
+        <div class="row  d-inline d-flex justify-content m-2">
+            <div class="col-5">
+                <label for="channelName">Channel Name : </label>
+                @ViewBag.Metadata.ChannelName
+            </div>
+            <div class="col-1"></div>
+            <div class="col-5">
+                <label for="genre"> Genre : </label>
+                @ViewBag.Metadata.Genre
+            </div>
+        </div>
+        <div class="row d-inline d-flex justify-content m-2">
+            <div class="col-5">
+                <label for="subtitleLanguage">Subtitle language : </label>
+                @ViewBag.Metadata.SubtitleLanguage
+            </div>
+            <div class="col-1"></div>
+            <div class="col-5">
+                <label for="dubbingLanguage"> Dubbing language : </label>
+                @ViewBag.Metadata.DubbingLanguage
+            </div>
+        </div>
+        <div class="row d-inline d-flex justify-content m-2">
+            <div class="col-5">
+                <label for="episodeNo.">Episode No. : </label>
+                @ViewBag.Metadata.EpisodeNo
+            </div>
+            <div class="col-1"></div>
+            <div class="col-5">
+                <label for="synopsis">Synopsis : </label>
+                @ViewBag.Metadata.Synopsis
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-7">
+                <label for="releaseDate">Release Date : </label>
+                @ViewBag.Metadata.ReleaseDate
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-7">
+                <label for="alternateTitle">Alternate Title : </label>
+                @ViewBag.Metadata.AlternateTitle
+            </div>
+        </div>
+        <div class="row d-inline d-flex justify-content m-2">
+            <div class="col-5">
+                <label for="audioType">Audio Type : </label>
+                @ViewBag.Metadata.AudioType
+            </div>
+            <div class="col-1"></div>
+            <div class="col-5">
+                <label for="videoStandard">Video Standard : </label>
+                @ViewBag.Metadata.VideoStandard
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-7">
+                <label for="contentType"> Content Type : </label>
+                @ViewBag.Metadata.ContentType
+            </div>
+        </div>
+        <div class="row d-inline d-flex justify-content m-2">
+            <div class="col-5">
+                <label for="fileName">File Name : </label>
+                @ViewBag.Metadata.FileName
+            </div>
+            <div class="col-1"></div>
+            <div class="col-5">
+                <label for="comments">Comments(If any) : </label>
+                @ViewBag.Metadata.Comments
+            </div>
+        </div>
+        <div class="row d-inline d-flex justify-content m-2">
+            <div class="col-5">
+                <label for="archicalCategory">Archival Category : </label>
+                @ViewBag.Metadata.ArchivalCategory
+            </div>
+            <div class="col-1"></div>
+            <div class="col-5">
+                <label for="archiveLocation">Archive Location : </label>
+                @ViewBag.Metadata.ArchiveLocation
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-8">
+                <label for="censorCertificate">Censor certificate : </label>
+                @ViewBag.Metadata.CensorCertificate
+            </div>
+        </div>
+        <div class="row d-inline d-flex justify-content m-2">
+            <div class="col-6">
+                <label for="subCategory">Sub-Category : </label>
+                @ViewBag.Metadata.SubCategory
+            </div>
+            <div class="col-5">
+                <label for="partNo.">Part No. : </label>
+                @ViewBag.Metadata.PartNo
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-7">
+                <label for="segmentCount">Segment Count : </label>
+                @ViewBag.Metadata.SegmentCount
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-7">
+                <label for="productionHouse">Production House : </label>
+                @ViewBag.Metadata.ProductionHouse
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,202 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@*@model AzureMediaServices.Views.Asset.MetaDataFormModel*@
+@model metadata
+@{
+    ViewData["Title"] = "MetaDataForm";
+}
+@{
+    var id = ViewContext.RouteData.Values["id"]?.ToString();
+}
+
+ 
+
+
+<form asp-action="MetaDataForm" asp-controller="Form" method="post">    
+    <div class="card">
+        <div class="text-light card-header text-center text-bg-dark">
+            MeataData Form
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <label asp-for="Id"></label>
+                <input asp-for="Id" type="text" class="form-control" placeholder="Id" value="@id"/>
+            </div>
+            <div class="row d-inline d-flex justify-content m-2">
+                <div class="col-5">
+                    <label asp-for="Language">Language : </label>
+                    <input asp-for="Language" type="text" class="form-control" placeholder="Original Language" />
+                </div>
+                <div class="col-1"></div>
+                <div class="col-5">
+                    <label asp-for="ContentCategory">Content Category : </label>
+                    <input asp-for="ContentCategory" type="text" class="form-control" placeholder="Programs" />
+                </div>
+            </div>
+            <div class="row m-2">
+                <div class="col-7">
+                    <label asp-for="MainTitle">Main Title : </label>
+                    <input asp-for="MainTitle" type="text" class="form-control" placeholder="Programs Name" />
+                </div>
+            </div>
+            <div class="row  d-inline d-flex justify-content m-2">
+                 <div class="col-5">
+                    <label asp-for="ChannelName">Channel Name : </label>
+                    <select asp-for="ChannelName" class="form-select" aria-label="Default select example">
+                        <option selected>Select the Channel</option>
+                        <option value="Channel 1">Channel 1</option>
+                        <option value="Channel 2">Channel 2</option>
+                      </select>
+                 </div>
+                 <div class="col-1"></div>
+                 <div class="col-5">
+                    <label asp-for="Genre"> Genre : </label>
+                    <input asp-for="Genre" type="text" class="form-control" placeholder="Enter the Genre Name" />
+                 </div>
+            </div>
+            <div class="row d-inline d-flex justify-content m-2">
+                <div class="col-5">
+                    <label asp-for="SubtitleLanguage">Subtitle language : </label>
+                    <input asp-for="SubtitleLanguage" type="text" class="form-control" placeholder="Enter the Subtitle Language Name" />
+                </div>
+                <div class="col-1"></div>
+                <div class="col-5">
+                     <label asp-for="DubbingLanguage"> Dubbing language : </label>
+                     <input asp-for="DubbingLanguage" type="text" class="form-control" placeholder="Enter the Dubbing Language Name" />
+                </div>
+            </div>
+            <div class="row d-inline d-flex justify-content m-2">
+                <div class="col-5">
+                    <label asp-for="EpisodeNo">Episode No. : </label>
+                    <input asp-for="EpisodeNo" type="text" class="form-control" placeholder="Episode From- Episode To" />
+                </div>
+                <div class="col-1"></div>
+                <div class="col-5">
+                     <label asp-for="Synopsis">Synopsis : </label>
+                     <input asp-for="Synopsis" type="text" class="form-control" placeholder="1000 Characters" />
+                </div>
+            </div>
+            <div class="row m-2">
+                <div class="col-7">
+                    <label asp-for="ReleaseDate">Release Date : </label>
+                    <input asp-for="ReleaseDate" type="date" class="form-control" placeholder="Calender to Select the DD/MM/YYYY" />
+                </div>
+            </div>
+            <div class="row m-2">
+                <div class="col-7">
+                    <label asp-for="AlternateTitle">Alternate Title : </label>
+                    <input asp-for="AlternateTitle" type="text" class="form-control" placeholder="Alternate Title Name" />
+                </div>
+            </div>
+            <div class="row d-inline d-flex justify-content m-2">
+                <div class="col-5">
+                    <label asp-for="AudioType">Audio Type : </label>
+                    <select asp-for="AudioType" class="form-select" aria-label="Default select example">
+                        <option selected>Select audio Type</option>
+                        <option value="Mix">Mix</option>
+                        <option value="Unmix">Unmix</option>
+                    </select>
+                </div>
+                <div class="col-1"></div>
+                <div class="col-5">
+                    <label asp-for="VideoStandard">Video Standard : </label>
+                    <select asp-for="VideoStandard" class="form-select" aria-label="Default select example">
+                        <option selected>Select Video Standard</option>
+                        <option value="Video Standard 1">Video Standard 1</option>
+                        <option value="Video Standard 2">Video Standard 2</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row m-2">
+                <div class="col-7">
+                    <label asp-for="ContentType"> Content Type : </label>
+                    <select asp-for="ContentType" class="form-select" aria-label="Default select example">
+                        <option selected>Select Content Type</option>
+                        <option value="SD">SD</option>
+                        <option value="HD">HD</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row d-inline d-flex justify-content m-2">
+                <div class="col-5">
+                    <label asp-for="FileName">File Name : </label>
+                    <input asp-for="FileName" type="text" class="form-control" placeholder="Enter File Name" />
+                </div>
+                <div class="col-1"></div>
+                <div class="col-5">
+                    <label asp-for="Comments">Comments(If any) : </label>
+                    <input asp-for="Comments" type="text" class="form-control" placeholder="Enter Comments" />
+                </div>
+            </div>
+            <div class="row d-inline d-flex justify-content m-2">
+                <div class="col-5">
+                    <label asp-for="ArchivalCategory">Archival Category : </label>
+                    <select asp-for="ArchivalCategory" class="form-select" aria-label="Default select example">
+                        <option selected>Select Archival Category</option>
+                        <option value="Mix">Mix</option>
+                        <option value="Unmix">Unmix</option>
+                    </select>
+                </div>
+                <div class="col-1"></div>
+                <div class="col-5">
+                    <label asp-for="ArchiveLocation">Archive Location : </label>
+                    <select asp-for="ArchiveLocation" class="form-select" aria-label="Default select example">
+                        <option selected>Select Archive Location</option>
+                        <option value="Regional">Regional</option>
+                        <option value="National">National</option>
+                        <option value="International">International</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row m-2">
+                <div class="col-8">
+                    <label asp-for="CensorCertificate">Censor certificate : </label>
+                    <input asp-for="CensorCertificate" type="text" class="form-control" placeholder="U/A" />
+                </div>
+            </div>
+            <div class="row d-inline d-flex justify-content m-2">
+                <div class="col-6">
+                    <label asp-for="SubCategory">Sub-Category : </label>
+                    <select asp-for="SubCategory" class="form-select" aria-label="Default select example">
+                        <option selected>Select Sub-Category</option>
+                        <option value="Category 1">Category 1</option>
+                        <option value="Category 2">Category 2</option>
+                    </select>
+                </div>
+                <div class="col-5">
+                    <label asp-for="PartNo">Part No. : </label>
+                    <select asp-for="PartNo" class="form-select" aria-label="Default select example">
+                        <option selected>Select Part No.</option>
+                        <option value="Part 1">Part 1</option>
+                        <option value="Part 2">Part 2</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row m-2">
+                <div class="col-7">
+                    <label asp-for="SegmentCount">Segment Count : </label>
+                    <select asp-for="SegmentCount" class="form-select" aria-label="Default select example">
+                        <option selected>Select Segment Count</option>
+                        <option value="1">Segment 1/3</option>
+                        <option value="2">Segment 2/3</option>
+                        <option value="3">Segment 3/3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row m-2">
+                <div class="col-7">
+                    <label asp-for="ProductionHouse">Production House : </label>
+                    <input asp-for="ProductionHouse" type="text" class="form-control" placeholder="Enter PH Name" />
+                </div>
+            </div>
+            <div class="row d-flex justify-content-end">
+                <div class="col-1">
+                    <input type="submit" value="Add Metadata" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

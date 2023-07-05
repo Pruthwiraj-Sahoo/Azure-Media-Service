@@ -1,0 +1,125 @@
+﻿@{
+    ViewData["Title"] = "Upload Page";
+}
+
+<h2>Welcome to Upload Page</h2>
+
+@if (string.IsNullOrEmpty(ViewBag.SuccessMessage))
+{
+    <form id="upload-form" enctype="multipart/form-data">
+        @Html.ValidationSummary(true)
+        <div>
+            <label for="fileName">Video Name :</label>
+            <input type="text" name="fileName" id="fileName" />
+        </div>
+        <br/>
+        <div>
+            <label for="file">Select Video File:</label>
+            <input type="file" name="file" id="file" />
+           
+        </div>
+        <br />
+        
+
+        <input type="submit" value="Upload" id="upload-btn" />
+    </form>
+
+    <div id="upload-progress" style="display: none;">
+        <p id="upload-message">Uploading file...</p>
+        <progress id="upload-progress-bar" value="0" max="100"></progress>
+    </div>
+
+    <div id="encoding-progress" style="display: none;">
+        <p id="encoding-message">File uploaded successfully!</p>
+        <div id="encoding-progress-bar">Encoding progress: <span id="progress-value">0%</span></div>
+    </div>
+
+    <div id="streaming-progress" style="display: none;">
+        <p id="streaming-message">Encoding completed! Creating streaming locator...</p>
+        <progress id="streaming-progress-bar" value="0" max="100"></progress>
+    </div>
+
+    <div id="streaming-locator" style="display: none;">
+        <p id="streaming-locator-message">Streaming locator created successfully!</p>
+    </div>
+
+    <script>
+        document.getElementById("upload-form").addEventListener("submit", function (event) {
+            debugger;
+            event.preventDefault();
+
+            document.getElementById("upload-btn").disabled = true;
+            document.getElementById("file").disabled = true;
+
+            document.getElementById("upload-progress").style.display = "block";
+            document.getElementById("upload-message").innerText = "Uploading file...";
+            document.getElementById("upload-progress-bar").value = 0;
+            var v = document.getElementById("fileName").value;
+
+            var formData = new FormData();
+            formData.append("file", document.getElementById("file").files[0]);
+            formData.append("FileName", document.getElementById("fileName").value);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/Upload/UploadVideo");
+            xhr.upload.addEventListener("progress", function (e) {
+                if (e.lengthComputable) {
+                    var percent = Math.round((e.loaded / e.total) * 100);
+                    document.getElementById("upload-progress-bar").value = percent;
+                }
+            });
+            xhr.send(formData);
+
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    document.getElementById("upload-message").innerText = "File uploaded successfully!";
+                    document.getElementById("encoding-progress").style.display = "block";
+                    document.getElementById("encoding-message").innerText = "Encoding in progress...";
+                    simulateEncodingProgress();
+                } else {
+                    // Handle error case
+                }
+            };
+        });
+
+        function simulateEncodingProgress() {
+            var progress = 0;
+
+            var encodingProgress = setInterval(function () {
+                progress += Math.random() * 2; // Simulate slow progress increase
+                progress = Math.min(progress, 100); // Cap progress at 100
+
+                var encodingProgressBar = document.getElementById("encoding-progress-bar");
+                var progressValue = document.getElementById("progress-value");
+
+                progressValue.innerText = Math.round(progress) + "%"; // Display whole number percentage
+                encodingProgressBar.value = progress;
+
+                if (progress >= 100) {
+                    clearInterval(encodingProgress);
+                    document.getElementById("encoding-message").innerText = "Encoding completed!";
+                    document.getElementById("streaming-progress").style.display = "block";
+                    document.getElementById("streaming-message").innerText = "Creating streaming locator...";
+                    simulateStreamingLocatorCreation();
+                }
+            }, 1000); // Update progress every 1 second
+        }
+
+        function simulateStreamingLocatorCreation() {
+            setTimeout(function () {
+                document.getElementById("streaming-message").innerText = "Streaming locator created!";
+                document.getElementById("streaming-locator").style.display = "block";
+
+                // Hide all other progress divs
+                document.getElementById("upload-progress").style.display = "none";
+                document.getElementById("encoding-progress").style.display = "none";
+                document.getElementById("streaming-progress").style.display = "none";
+
+                // Redirect to the home page
+                setTimeout(function () {
+                    window.location.href = "/";
+                }, 5000);
+            }, 5000);
+        }
+    </script>
+}

@@ -1,0 +1,114 @@
+{
+  "AssetFile": [
+    {
+      "VideoTracks": [
+        {
+          "FourCC": "avc1",
+          "Profile": "High",
+          "Level": "3.1",
+          "PixelFormat": "yuv420p",
+          "Width": "1280",
+          "Height": "720",
+          "FrameRate": 30.0,
+          "Bitrate": 858999,
+          "BitrateSpecified": true,
+          "HasBFrames": 2,
+          "HasBFramesSpecified": true,
+          "Disposition": {
+            "Default": 1
+          },
+          "Metadata": [
+            {
+              "key": "language",
+              "value": "und"
+            },
+            {
+              "key": "handler_name",
+              "value": "VideoHandler"
+            },
+            {
+              "key": "vendor_id",
+              "value": "[0][0][0][0]"
+            },
+            {
+              "key": "encoder",
+              "value": "Lavc59.37.100 libx264"
+            }
+          ],
+          "Id": 1,
+          "Codec": "h264",
+          "CodecLongName": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+          "TimeBase": "1/15360",
+          "NumberOfFrames": 542,
+          "NumberOfFramesSpecified": true,
+          "StartTime": "PT0S",
+          "Duration": "PT18.067S"
+        }
+      ],
+      "AudioTracks": [
+        {
+          "SampleFormat": "fltp",
+          "ChannelLayout": "stereo",
+          "Channels": 2,
+          "SamplingRate": 48000,
+          "Bitrate": 128067,
+          "BitrateSpecified": true,
+          "BitsPerSampleSpecified": true,
+          "Disposition": {
+            "Default": 1
+          },
+          "Metadata": [
+            {
+              "key": "language",
+              "value": "und"
+            },
+            {
+              "key": "handler_name",
+              "value": "SoundHandler"
+            },
+            {
+              "key": "vendor_id",
+              "value": "[0][0][0][0]"
+            }
+          ],
+          "Id": 2,
+          "Codec": "aac",
+          "CodecLongName": "AAC (Advanced Audio Coding)",
+          "TimeBase": "1/48000",
+          "NumberOfFrames": 848,
+          "NumberOfFramesSpecified": true,
+          "StartTime": "PT0S",
+          "Duration": "PT18.091S"
+        }
+      ],
+      "Metadata": [
+        {
+          "key": "major_brand",
+          "value": "isom"
+        },
+        {
+          "key": "minor_version",
+          "value": "512"
+        },
+        {
+          "key": "compatible_brands",
+          "value": "isomiso2avc1mp41"
+        },
+        {
+          "key": "encoder",
+          "value": "Lavf59.27.100"
+        }
+      ],
+      "Name": "80f422c1-3569-4248-aa96-34fa6d183040.mp4",
+      "Uri": "https://videoindexstorage.blob.core.windows.net/asset-a2507216-1718-4ed3-9844-ce0be872861b/80f422c1-3569-4248-aa96-34fa6d183040.mp4",
+      "Size": 2250707,
+      "Duration": "PT18.091S",
+      "NumberOfStreams": 2,
+      "FormatNames": "mov,mp4,m4a,3gp,3g2,mj2",
+      "FormatVerboseName": "QuickTime / MOV",
+      "StartTime": "PT0S",
+      "OverallBitRate": 995282,
+      "OverallBitRateSpecified": true
+    }
+  ]
+}

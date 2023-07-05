@@ -1,0 +1,114 @@
+{
+  "MasterLanguage": "zh-Hans",
+  "Confidence": 0.1655,
+  "ConfidencePerLanguage": [
+    {
+      "Language": null,
+      "Confidence": 0.8128
+    },
+    {
+      "Language": "zh-Hans",
+      "Confidence": 0.1655
+    },
+    {
+      "Language": "en-US",
+      "Confidence": 0.0
+    },
+    {
+      "Language": "fr-FR",
+      "Confidence": 0.0
+    },
+    {
+      "Language": "de-DE",
+      "Confidence": 0.0
+    },
+    {
+      "Language": "it-IT",
+      "Confidence": 0.0427
+    },
+    {
+      "Language": "ja-JP",
+      "Confidence": 0.0
+    },
+    {
+      "Language": "pt-BR",
+      "Confidence": 0.0
+    },
+    {
+      "Language": "ru-RU",
+      "Confidence": 0.0025
+    },
+    {
+      "Language": "es-ES",
+      "Confidence": 0.0
+    }
+  ],
+  "LanguageDetectionSegments": [
+    {
+      "Confidence": 0.1655,
+      "StartTime": "00:00:00",
+      "EndTime": "00:00:27",
+      "Duration": "00:00:27",
+      "Language": "zh-Hans",
+      "TimeRange": {
+        "Start": "00:00:00",
+        "End": "00:00:27"
+      },
+      "ConfidencePerLanguage": [
+        {
+          "Language": null,
+          "Confidence": 0.8128
+        },
+        {
+          "Language": "zh-Hans",
+          "Confidence": 0.1655
+        },
+        {
+          "Language": "en-US",
+          "Confidence": 0.0
+        },
+        {
+          "Language": "fr-FR",
+          "Confidence": 0.0
+        },
+        {
+          "Language": "de-DE",
+          "Confidence": 0.0
+        },
+        {
+          "Language": "it-IT",
+          "Confidence": 0.0427
+        },
+        {
+          "Language": "ja-JP",
+          "Confidence": 0.0
+        },
+        {
+          "Language": "pt-BR",
+          "Confidence": 0.0
+        },
+        {
+          "Language": "ru-RU",
+          "Confidence": 0.0025
+        },
+        {
+          "Language": "es-ES",
+          "Confidence": 0.0
+        }
+      ]
+    }
+  ],
+  "SpeechNonSpeechSegments": [
+    {
+      "Confidence": 0.8239,
+      "StartTime": "00:00:00",
+      "EndTime": "00:00:27",
+      "Duration": "00:00:27",
+      "Label": "NonSpeech",
+      "TimeRange": {
+        "Start": "00:00:00",
+        "End": "00:00:27"
+      }
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<smil xmlns="http://www.w3.org/2001/SMIL20/Language">
+  <head>
+    <meta name="clientManifestRelativePath" content="c104de9d-af40-4de3-90fa-6434bbf1.ismc" />
+    <meta name="formats" content="mp4-v3" />
+  </head>
+  <body>
+    <switch>
+      <audio src="c104de9d-af40-4de3-90fa-6434bbf1_202x360_AACAudio_239.mp4" systemBitrate="128000" systemLanguage="und">
+        <param name="systemBitrate" value="128000" valuetype="data" />
+        <param name="trackID" value="2" valuetype="data" />
+        <param name="trackName" value="aac_und_2_128000_2_1" valuetype="data" />
+        <param name="systemLanguage" value="und" valuetype="data" />
+        <param name="trackIndex" value="c104de9d-af40-4de3-90fa-6434bbf1_202x360_AACAudio_239_2.mpi" valuetype="data" />
+      </audio>
+      <video src="c104de9d-af40-4de3-90fa-6434bbf1_1080x1920_AACAudio_3559.mp4" systemBitrate="3559876">
+        <param name="systemBitrate" value="3559876" valuetype="data" />
+        <param name="trackID" value="1" valuetype="data" />
+        <param name="trackName" value="video" valuetype="data" />
+        <param name="trackIndex" value="c104de9d-af40-4de3-90fa-6434bbf1_1080x1920_AACAudio_3559_1.mpi" valuetype="data" />
+      </video>
+      <video src="c104de9d-af40-4de3-90fa-6434bbf1_810x1440_AACAudio_2236.mp4" systemBitrate="2236512">
+        <param name="systemBitrate" value="2236512" valuetype="data" />
+        <param name="trackID" value="1" valuetype="data" />
+        <param name="trackName" value="video" valuetype="data" />
+        <param name="trackIndex" value="c104de9d-af40-4de3-90fa-6434bbf1_810x1440_AACAudio_2236_1.mpi" valuetype="data" />
+      </video>
+      <video src="c104de9d-af40-4de3-90fa-6434bbf1_608x1080_AACAudio_1408.mp4" systemBitrate="1408389">
+        <param name="systemBitrate" value="1408389" valuetype="data" />
+        <param name="trackID" value="1" valuetype="data" />
+        <param name="trackName" value="video" valuetype="data" />
+        <param name="trackIndex" value="c104de9d-af40-4de3-90fa-6434bbf1_608x1080_AACAudio_1408_1.mpi" valuetype="data" />
+      </video>
+      <video src="c104de9d-af40-4de3-90fa-6434bbf1_406x720_AACAudio_733.mp4" systemBitrate="733988">
+        <param name="systemBitrate" value="733988" valuetype="data" />
+        <param name="trackID" value="1" valuetype="data" />
+        <param name="trackName" value="video" valuetype="data" />
+        <param name="trackIndex" value="c104de9d-af40-4de3-90fa-6434bbf1_406x720_AACAudio_733_1.mpi" valuetype="data" />
+      </video>
+      <video src="c104de9d-af40-4de3-90fa-6434bbf1_304x540_AACAudio_456.mp4" systemBitrate="456002">
+        <param name="systemBitrate" value="456002" valuetype="data" />
+        <param name="trackID" value="1" valuetype="data" />
+        <param name="trackName" value="video" valuetype="data" />
+        <param name="trackIndex" value="c104de9d-af40-4de3-90fa-6434bbf1_304x540_AACAudio_456_1.mpi" valuetype="data" />
+      </video>
+      <video src="c104de9d-af40-4de3-90fa-6434bbf1_202x360_AACAudio_239.mp4" systemBitrate="239231">
+        <param name="systemBitrate" value="239231" valuetype="data" />
+        <param name="trackID" value="1" valuetype="data" />
+        <param name="trackName" value="video" valuetype="data" />
+        <param name="trackIndex" value="c104de9d-af40-4de3-90fa-6434bbf1_202x360_AACAudio_239_1.mpi" valuetype="data" />
+      </video>
+    </switch>
+  </body>
+</smil>

@@ -1,0 +1,40 @@
+{
+  "AssetFile": [
+    {
+      "Sources": [
+        {
+          "Name": "59bcb5f1-b342-4d56-8ca7-2f289c83_320x240_AACAudio_105.mp4"
+        }
+      ],
+      "VideoTracks": [
+        {
+          "Id": 1,
+          "FourCC": "hev1",
+          "Width": "320",
+          "Height": "240",
+          "DisplayAspectRatioNumerator": 4.0,
+          "DisplayAspectRatioDenominator": 3.0,
+          "Framerate": 15.0,
+          "Bitrate": 105271,
+          "TargetBitrate": 100000,
+          "MesCodec": "hev1",
+          "MesEncodingComplexity": "Balanced"
+        }
+      ],
+      "AudioTracks": [
+        {
+          "Id": 2,
+          "Codec": "aac",
+          "Language": "und",
+          "Channels": 2,
+          "SamplingRate": 48000,
+          "Bitrate": 128179,
+          "MesCodec": "aac"
+        }
+      ],
+      "Name": "59bcb5f1-b342-4d56-8ca7-2f289c83_320x240_AACAudio_105.mp4",
+      "Size": 916901,
+      "Duration": "PT30.8S"
+    }
+  ]
+}

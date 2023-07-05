@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    .img-container {
+        width: 500px;
+        height: 500px;
+        overflow: hidden;
+    }
+
+        .img-container img {
+            width: 100%;
+            height: auto;
+        }
+</style>
+
+<div class="text-center">
+    <h1 class="text-dark opacity-75">Welcome to Azure Media Asset Management</h1>
+    <h3 class="text-dark opacity-75 py-4"><i><u>Below are the Media Assets</u></i></h3>
+</div>
+
+@foreach (var dict in AzureMediaServices.Repository.HomeRepository.thumbnailAssetName)
+{
+    <a asp-route-id="@dict.Key" asp-controller="Asset" asp-action="AssetDisplay">
+        <div class="container">
+            <div class="row">
+                <div class="d-flex align-items-center justify-content-center">
+                    <img src="@dict.Value" width="540px" height="300px" />
+                </div>
+            </div>
+        </div>
+    </a>
+    <hr />
+}
+
+

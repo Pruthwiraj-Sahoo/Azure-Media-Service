@@ -1,0 +1,127 @@
+{
+  "AssetFile": [
+    {
+      "VideoTracks": [
+        {
+          "FourCC": "avc1",
+          "Profile": "Main",
+          "Level": "3.1",
+          "PixelFormat": "yuv420p",
+          "Width": "1280",
+          "Height": "720",
+          "DisplayAspectRatioNumerator": 16.0,
+          "DisplayAspectRatioDenominator": 9.0,
+          "SampleAspectRatioNumerator": 1.0,
+          "SampleAspectRatioNumeratorSpecified": true,
+          "SampleAspectRatioDenominator": 1.0,
+          "SampleAspectRatioDenominatorSpecified": true,
+          "FrameRate": 25.0,
+          "Bitrate": 1048652,
+          "BitrateSpecified": true,
+          "HasBFramesSpecified": true,
+          "Disposition": {
+            "Default": 1
+          },
+          "Metadata": [
+            {
+              "key": "creation_time",
+              "value": "1970-01-01T00:00:00.000000Z"
+            },
+            {
+              "key": "language",
+              "value": "und"
+            },
+            {
+              "key": "handler_name",
+              "value": "VideoHandler"
+            },
+            {
+              "key": "vendor_id",
+              "value": "[0][0][0][0]"
+            }
+          ],
+          "Id": 1,
+          "Codec": "h264",
+          "CodecLongName": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+          "TimeBase": "1/12800",
+          "NumberOfFrames": 2932,
+          "NumberOfFramesSpecified": true,
+          "StartTime": "PT0S",
+          "Duration": "PT1M57.28S"
+        }
+      ],
+      "AudioTracks": [
+        {
+          "SampleFormat": "fltp",
+          "ChannelLayout": "5.1",
+          "Channels": 6,
+          "SamplingRate": 48000,
+          "Bitrate": 383869,
+          "BitrateSpecified": true,
+          "BitsPerSampleSpecified": true,
+          "Disposition": {
+            "Default": 1
+          },
+          "Metadata": [
+            {
+              "key": "creation_time",
+              "value": "1970-01-01T00:00:00.000000Z"
+            },
+            {
+              "key": "language",
+              "value": "und"
+            },
+            {
+              "key": "handler_name",
+              "value": "SoundHandler"
+            },
+            {
+              "key": "vendor_id",
+              "value": "[0][0][0][0]"
+            }
+          ],
+          "Id": 2,
+          "Codec": "aac",
+          "CodecLongName": "AAC (Advanced Audio Coding)",
+          "TimeBase": "1/48000",
+          "NumberOfFrames": 5499,
+          "NumberOfFramesSpecified": true,
+          "StartTime": "PT0S",
+          "Duration": "PT1M57.312S"
+        }
+      ],
+      "Metadata": [
+        {
+          "key": "major_brand",
+          "value": "isom"
+        },
+        {
+          "key": "minor_version",
+          "value": "512"
+        },
+        {
+          "key": "compatible_brands",
+          "value": "isomiso2avc1mp41"
+        },
+        {
+          "key": "creation_time",
+          "value": "1970-01-01T00:00:00.000000Z"
+        },
+        {
+          "key": "encoder",
+          "value": "Lavf53.24.2"
+        }
+      ],
+      "Name": "d930bc57-52aa-41cc-8d30-1c37d39bc47a.mp4",
+      "Uri": "https://mediaservicess.blob.core.windows.net/asset-45a7d3f3-0ed5-4060-8225-879d778a3000/d930bc57-52aa-41cc-8d30-1c37d39bc47a.mp4",
+      "Size": 21069678,
+      "Duration": "PT1M57.312S",
+      "NumberOfStreams": 2,
+      "FormatNames": "mov,mp4,m4a,3gp,3g2,mj2",
+      "FormatVerboseName": "QuickTime / MOV",
+      "StartTime": "PT0S",
+      "OverallBitRate": 1436830,
+      "OverallBitRateSpecified": true
+    }
+  ]
+}

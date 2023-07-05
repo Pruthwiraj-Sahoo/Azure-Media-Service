@@ -1,0 +1,220 @@
+{
+  "AssetFile": [
+    {
+      "Sources": [
+        {
+          "Name": "c104de9d-af40-4de3-90fa-6434bbf1_1080x1920_AACAudio_3559.mp4"
+        }
+      ],
+      "VideoTracks": [
+        {
+          "Id": 1,
+          "FourCC": "hev1",
+          "Width": "1080",
+          "Height": "1920",
+          "DisplayAspectRatioNumerator": 0.563,
+          "DisplayAspectRatioDenominator": 1.0,
+          "Framerate": 23.976,
+          "Bitrate": 3559876,
+          "TargetBitrate": 3430000,
+          "MesCodec": "hev1",
+          "MesEncodingComplexity": "Balanced"
+        }
+      ],
+      "AudioTracks": [
+        {
+          "Id": 2,
+          "Codec": "aac",
+          "Language": "und",
+          "Channels": 2,
+          "SamplingRate": 48000,
+          "Bitrate": 128000,
+          "MesCodec": "aac"
+        }
+      ],
+      "Name": "c104de9d-af40-4de3-90fa-6434bbf1_1080x1920_AACAudio_3559.mp4",
+      "Size": 5240142,
+      "Duration": "PT11.392S"
+    },
+    {
+      "Sources": [
+        {
+          "Name": "c104de9d-af40-4de3-90fa-6434bbf1_810x1440_AACAudio_2236.mp4"
+        }
+      ],
+      "VideoTracks": [
+        {
+          "Id": 1,
+          "FourCC": "hev1",
+          "Width": "810",
+          "Height": "1440",
+          "DisplayAspectRatioNumerator": 0.563,
+          "DisplayAspectRatioDenominator": 1.0,
+          "Framerate": 23.976,
+          "Bitrate": 2236512,
+          "TargetBitrate": 2160000,
+          "MesCodec": "hev1",
+          "MesEncodingComplexity": "Balanced"
+        }
+      ],
+      "AudioTracks": [
+        {
+          "Id": 2,
+          "Codec": "aac",
+          "Language": "und",
+          "Channels": 2,
+          "SamplingRate": 48000,
+          "Bitrate": 128000,
+          "MesCodec": "aac"
+        }
+      ],
+      "Name": "c104de9d-af40-4de3-90fa-6434bbf1_810x1440_AACAudio_2236.mp4",
+      "Size": 3363503,
+      "Duration": "PT11.392S"
+    },
+    {
+      "Sources": [
+        {
+          "Name": "c104de9d-af40-4de3-90fa-6434bbf1_608x1080_AACAudio_1408.mp4"
+        }
+      ],
+      "VideoTracks": [
+        {
+          "Id": 1,
+          "FourCC": "hev1",
+          "Width": "608",
+          "Height": "1080",
+          "DisplayAspectRatioNumerator": 0.563,
+          "DisplayAspectRatioDenominator": 1.0,
+          "Framerate": 23.976,
+          "Bitrate": 1408389,
+          "TargetBitrate": 1360000,
+          "MesCodec": "hev1",
+          "MesEncodingComplexity": "Balanced"
+        }
+      ],
+      "AudioTracks": [
+        {
+          "Id": 2,
+          "Codec": "aac",
+          "Language": "und",
+          "Channels": 2,
+          "SamplingRate": 48000,
+          "Bitrate": 128000,
+          "MesCodec": "aac"
+        }
+      ],
+      "Name": "c104de9d-af40-4de3-90fa-6434bbf1_608x1080_AACAudio_1408.mp4",
+      "Size": 2189155,
+      "Duration": "PT11.392S"
+    },
+    {
+      "Sources": [
+        {
+          "Name": "c104de9d-af40-4de3-90fa-6434bbf1_406x720_AACAudio_733.mp4"
+        }
+      ],
+      "VideoTracks": [
+        {
+          "Id": 1,
+          "FourCC": "hev1",
+          "Width": "406",
+          "Height": "720",
+          "DisplayAspectRatioNumerator": 0.564,
+          "DisplayAspectRatioDenominator": 1.0,
+          "Framerate": 23.976,
+          "Bitrate": 733988,
+          "TargetBitrate": 710000,
+          "MesCodec": "hev1",
+          "MesEncodingComplexity": "Balanced"
+        }
+      ],
+      "AudioTracks": [
+        {
+          "Id": 2,
+          "Codec": "aac",
+          "Language": "und",
+          "Channels": 2,
+          "SamplingRate": 48000,
+          "Bitrate": 128000,
+          "MesCodec": "aac"
+        }
+      ],
+      "Name": "c104de9d-af40-4de3-90fa-6434bbf1_406x720_AACAudio_733.mp4",
+      "Size": 1232798,
+      "Duration": "PT11.392S"
+    },
+    {
+      "Sources": [
+        {
+          "Name": "c104de9d-af40-4de3-90fa-6434bbf1_304x540_AACAudio_456.mp4"
+        }
+      ],
+      "VideoTracks": [
+        {
+          "Id": 1,
+          "FourCC": "hev1",
+          "Width": "304",
+          "Height": "540",
+          "DisplayAspectRatioNumerator": 0.563,
+          "DisplayAspectRatioDenominator": 1.0,
+          "Framerate": 23.976,
+          "Bitrate": 456002,
+          "TargetBitrate": 440000,
+          "MesCodec": "hev1",
+          "MesEncodingComplexity": "Balanced"
+        }
+      ],
+      "AudioTracks": [
+        {
+          "Id": 2,
+          "Codec": "aac",
+          "Language": "und",
+          "Channels": 2,
+          "SamplingRate": 48000,
+          "Bitrate": 128000,
+          "MesCodec": "aac"
+        }
+      ],
+      "Name": "c104de9d-af40-4de3-90fa-6434bbf1_304x540_AACAudio_456.mp4",
+      "Size": 838591,
+      "Duration": "PT11.392S"
+    },
+    {
+      "Sources": [
+        {
+          "Name": "c104de9d-af40-4de3-90fa-6434bbf1_202x360_AACAudio_239.mp4"
+        }
+      ],
+      "VideoTracks": [
+        {
+          "Id": 1,
+          "FourCC": "hev1",
+          "Width": "202",
+          "Height": "360",
+          "DisplayAspectRatioNumerator": 0.561,
+          "DisplayAspectRatioDenominator": 1.0,
+          "Framerate": 23.976,
+          "Bitrate": 239231,
+          "TargetBitrate": 230000,
+          "MesCodec": "hev1",
+          "MesEncodingComplexity": "Balanced"
+        }
+      ],
+      "AudioTracks": [
+        {
+          "Id": 2,
+          "Codec": "aac",
+          "Language": "und",
+          "Channels": 2,
+          "SamplingRate": 48000,
+          "Bitrate": 128000,
+          "MesCodec": "aac"
+        }
+      ],
+      "Name": "c104de9d-af40-4de3-90fa-6434bbf1_202x360_AACAudio_239.mp4",
+      "Size": 531191,
+      "Duration": "PT11.392S"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<smil xmlns="http://www.w3.org/2001/SMIL20/Language">
+  <head>
+    <meta name="clientManifestRelativePath" content="7119a948-c185-4d35-90eb-6cde578e.ismc" />
+    <meta name="formats" content="mp4-v3" />
+  </head>
+  <body>
+    <switch>
+      <audio src="7119a948-c185-4d35-90eb-6cde578e_360x240_AACAudio_241.mp4" systemBitrate="127999" systemLanguage="eng">
+        <param name="systemBitrate" value="127999" valuetype="data" />
+        <param name="trackID" value="2" valuetype="data" />
+        <param name="trackName" value="aac_eng_2_127999_2_1" valuetype="data" />
+        <param name="systemLanguage" value="eng" valuetype="data" />
+        <param name="trackIndex" value="7119a948-c185-4d35-90eb-6cde578e_360x240_AACAudio_241_2.mpi" valuetype="data" />
+      </audio>
+      <video src="7119a948-c185-4d35-90eb-6cde578e_360x240_AACAudio_241.mp4" systemBitrate="241418">
+        <param name="systemBitrate" value="241418" valuetype="data" />
+        <param name="trackID" value="1" valuetype="data" />
+        <param name="trackName" value="video" valuetype="data" />
+        <param name="trackIndex" value="7119a948-c185-4d35-90eb-6cde578e_360x240_AACAudio_241_1.mpi" valuetype="data" />
+      </video>
+    </switch>
+  </body>
+</smil>
