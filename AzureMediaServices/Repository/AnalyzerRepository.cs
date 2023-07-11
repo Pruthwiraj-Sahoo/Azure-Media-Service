@@ -15,7 +15,7 @@ namespace AzureMediaServices.Repository
     public class AnalyzerRepository
     {
 
-        public async Task<string> AnalyzeAsync(string FileSourceUri, string videoname = "")
+        public async Task<string> AnalyzeAsync(string FileSourceUri, string videoname = "",string uniqueguid="")
         {
             const string OutputFolder = "Output";
             const string CustomTransform = "AudioVideoAnalyzer";
@@ -55,7 +55,7 @@ namespace AzureMediaServices.Repository
                 string uniqueness = Guid.NewGuid().ToString()[..13];
                 string jobName = $"job-{uniqueness}";
                 string locatorName = $"locator-{uniqueness}";
-                string outputAssetName = $"{videoname}_output_analyzer-{uniqueness}";
+                string outputAssetName = $"{videoname}_output_analyzer-{uniqueguid}";
 
                 var transform = await CreateTransformAsync(mediaServicesAccount, CustomTransform);
 

@@ -70,33 +70,39 @@ namespace AzureMediaServices.Repository
                 }
 
             }
+           
             videoName = assetName;
             BlobServiceClient blobServiceClient = new BlobServiceClient(options.AZURE_CONNECTION_STRING);
 
             BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient(containerName);
 
-            foreach (BlobItem blobItem in containerClient.GetBlobs())
-            {
+            ///<summary>
+            ///Not thread safe
+            /// 
+            /// </summary>
 
-                BlobClient blobClient = containerClient.GetBlobClient(blobItem.Name);
+            //foreach (BlobItem blobItem in containerClient.GetBlobs())
+            //{
+
+            //    BlobClient blobClient = containerClient.GetBlobClient(blobItem.Name);
 
 
-                // Check if the blob is a json (assuming they have a specific naming convention)
-                if (blobItem.Name.EndsWith("metadata.json"))
-                {
-                    //Download file with .json extension
-                    //blobClient.DownloadTo("C:\\Users\\manasa.marigoli\\Downloads\\AzureMediaServices V5\\AzureMediaServices\\AzureMediaServices\\MetaData\\metadata.json");
+            //    // Check if the blob is a json (assuming they have a specific naming convention)
+            //    if (blobItem.Name.EndsWith("metadata.json"))
+            //    {
+            //        //Download file with .json extension
+            //        //blobClient.DownloadTo("C:\\Users\\manasa.marigoli\\Downloads\\AzureMediaServices V5\\AzureMediaServices\\AzureMediaServices\\MetaData\\metadata.json");
 
-                    var CurrentDirectoryPath = Directory.GetCurrentDirectory();
+            //        var CurrentDirectoryPath = Directory.GetCurrentDirectory();
 
-                    string DownloadPath = Path.Combine(CurrentDirectoryPath, "MetaData", "metadata.json");
+            //        string DownloadPath = Path.Combine(CurrentDirectoryPath, "MetaData", "metadata.json");
 
-                    //Download file with .json extension
-                    blobClient.DownloadTo(DownloadPath);
+            //        //Download file with .json extension
+            //        blobClient.DownloadTo(DownloadPath);
 
-                    break;
-                }
-            }
+            //        break;
+            //    }
+            //}
         }
         public static void ShowMetaData()
         {

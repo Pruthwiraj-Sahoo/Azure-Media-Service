@@ -24,6 +24,8 @@
 }
 
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <link href="https://amp.azure.net/libs/amp/2.3.5/skins/amp-default/azuremediaplayer.min.css" rel="stylesheet">
 <script src="https://amp.azure.net/libs/amp/2.3.5/azuremediaplayer.min.js"></script>
@@ -35,6 +37,24 @@
         <p>Your browser does not support HTML5 video.</p>
     </video>
 </div>
+
+<div class="collapse" id="collapseExample">
+    
+    <div class="card card-body">
+        <button type="button" id="close" class="btn-close" aria-label="Close"></button>
+        <div id="container" class="container overflow-auto anyClass">
+            <div id="loder">
+                <strong>Loading...</strong>
+                <div class="progress">
+                    <div class="progress-bar-animated bg-success" id="progressbar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script>
     var myOptions = {
         "nativeControlsForTouch": false,
@@ -63,15 +83,34 @@
     }
 
     </div>
+
+<button id="btnReport" class="btn btn-outline-success opacity-75 rounded-2 m-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-controls="collapseExample">Get Report</button>
+
     <button id="fetchButton" class="btn btn-outline-success opacity-75 rounded-2 m-2">Media Technical Information </button>
     <a asp-route-id="@AzureMediaServices.Repository.AssetRepository.AssetName" asp-controller="Asset" asp-action="MetaDataForm" class="btn btn-outline-success opacity-75 rounded-2 m-2">MetaData Form</a>
     <a asp-route-id="@AzureMediaServices.Repository.AssetRepository.AssetName" asp-controller="Form" asp-action="ShowMetadataDisplay" class="btn btn-outline-success opacity-75 rounded-2 m-2">MetaData Display</a>
 
 
 
+
 <style>
     #fetchButton{
         margin-left : 400px;
+    }
+
+    .anyClass {
+        height: 150px;
+        overflow-y: scroll;
+        overflow:hidden;
+    }
+
+    .adiv{
+        border-bottom:1px dashed black;
+        width:180px;
+    }
+
+    #loder{
+        display:none;
     }
 </style>
 
@@ -132,6 +171,7 @@
 @section scripts {
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         $(document).ready(function () {
             $("#btnStart").click(function () {
@@ -164,8 +204,11 @@
                     });
                 }
             });
+            
         });
     </script>
+
+ 
 
     <script>
         $(document).ready(function () {
@@ -174,7 +217,7 @@
                     url: "@Url.Action("GetJsonData", "Asset")",
                     type: "GET",
                     success: function (data) {
-                        console.debug(data);
+                        //console.debug(data);
                         var parsedData = JSON.parse(data);
                         $("#card").addClass('card');
                         $("#heading").text("Metadata").addClass('text-light card-header text-center text-bg-dark');
@@ -217,6 +260,124 @@
                         $("#NumberOfFramesA").text("NumberOfFrames: " + parsedData.AssetFile[0].AudioTracks[0].NumberOfFrames);
                     }
                 });
+            });
+        });
+    </script>
+
+    <script>
+
+        $(document).ready(function () {
+            $("#btnReport").click(function () {
+                $("#btnReport").attr("disabled", true);
+                var getFdiv = document.getElementsByClassName("fragments");
+                //console.log(getFdiv);
+                if (getFdiv.length == 0 ) {
+                    getReportdata();
+                }
+                $("#btnReport").attr("disabled", false);
+
+            });
+        });
+       
+    </script>  
+    <script>
+        function Reload(){
+            var getFdiv = document.getElementsByClassName("fragments");
+            //console.log(getFdiv);
+            if (getFdiv.length != 0) {
+                let i = 0;
+                while (getFdiv.length > 0) {
+                    //for (let i=0; i<= getFdiv.length;i++) {
+                    //console.log(i, getFdiv.length);
+                    const contenid = document.getElementById(getFdiv[i].id);
+                    //console.log(contenid);
+                    contenid.parentNode.removeChild(contenid);
+                }
+                getReportdata();
+            }
+        }
+
+    </script>
+
+    <script>
+        async function loadbar(show,percent){
+            const loder = document.getElementById("loder");
+            const pgBar = document.getElementById("progressbar");
+            if(show){
+                loder.style.display = "block";
+                pgBar.style.width = String(percent);
+            }
+            else{
+                pgBar.style.width = String(percent);
+                setTimeout(function () {
+                    loder.style.display = "none";
+                }, 2000);
+            }
+
+        }
+    </script>
+    <script>
+        function getReportdata(){
+            loadbar(true, "10%");
+            $.ajax({
+                url: "@Url.Action( "GetReport", "Asset",new{id = @id})",
+                type: "GET",
+                success: function (data) {
+                    loadbar(true, "50%");
+                    var obj = JSON.parse(data);
+                    const timescale = obj.timescale;
+                    console.log(timescale);
+                    const fragmentsThatContainEvent = obj.fragments.filter((f) => f.events?.length);
+                    //const finalFragments = [];
+                    loadbar(false, "100%");
+                    fragmentsThatContainEvent.map((fragment, index) => {
+
+                        var Fdiv = document.createElement('div');
+                        Fdiv.id = 'Fragment' + index;
+                        Fdiv.className = 'fragments';
+                        Fdiv.innerHTML = '<h6>Fragment :</h6>';
+                        document.getElementById("container").appendChild(Fdiv);
+
+
+
+                        const validEvents = fragment.events?.filter((e) => e.length);
+
+                        //const finalEvents = [];
+
+                        validEvents.map((ve, i) => {
+                            const { timestamp, adultScore, racyScore } = ve[0];
+
+                            var adiv = document.createElement('div');
+                            adiv.id = 'Area' + i;
+                            adiv.className = 'adiv'
+                            adiv.innerHTML = "Time Stamp :" + parseFloat(timestamp / timescale).toFixed(2) + "<br/>" + "Adult Score :" + parseFloat(adultScore).toFixed(3) + "<br/> Racy Score :" + parseFloat(racyScore).toFixed(3);
+                            document.getElementById("Fragment" + index).appendChild(adiv);
+                            //finalEvents.push({ timestamp, adultScore });
+                            //console.log("Time Stamp :" + timestamp / timescale + "," + "Adult Score :" + adultScore*100+"%");
+
+
+                        })
+
+                        //const fragmentObject = { events: finalEvents };
+
+                        //finalFragments.push({ fragment: fragmentObject });
+
+                    })
+                    //console.log(JSON.stringify(finalFragments));
+                    //LoopTest(finalFragments);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log("some error", errorThrown);
+                }
+            });
+
+        }
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#close").click(function () {
+                var element = document.getElementById("collapseExample");
+                element.classList.remove("show");
             });
         });
     </script>

@@ -7,6 +7,8 @@ using Azure.Storage.Blobs.Models;
 using Azure.Storage.Blobs;
 using Microsoft.Azure.Management.Media.Models;
 using System.Text.Json;
+using Newtonsoft.Json.Linq;
+using System.Net;
 
 namespace AzureMediaServices.Repository
 {
@@ -39,7 +41,7 @@ namespace AzureMediaServices.Repository
         #endregion
 
         #region Read data from Azure
-        public async Task ReadOnline(string assertName)
+        public async Task<object> ReadOnline(string assertName)
         {
             try
             {
@@ -49,7 +51,7 @@ namespace AzureMediaServices.Repository
 
                 if (!Options.TryGetOptions(configuration, out var options))
                 {
-                    return;
+                    return "Config not found";
                 }
 
                 Environment.SetEnvironmentVariable("AZURE_CLIENT_ID", options.AZURE_CLIENT_ID);
@@ -74,7 +76,7 @@ namespace AzureMediaServices.Repository
 
                 var mediaServicesAccount = armClient.GetMediaServicesAccountResource(mediaServiceAccountId);
                 var assets = mediaServicesAccount.GetMediaAssets().GetAll();
-
+                var fragment="";
                 foreach (var item in assets)
                 {
                     if (item.Data.Name==assertName)
@@ -84,21 +86,27 @@ namespace AzureMediaServices.Repository
 
                         // Get a reference to the container
                         BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient(item.Data.Container);
-
+                        dynamic json;
                         // List all blobs in the container
                         foreach (BlobItem blobItem in containerClient.GetBlobs())
                         {
                             if (blobItem.Name.Contains("contentmoderation.json"))
                             {
-                                //var url = "https://videoindexstorage.blob.core.windows.net/"+item.Data.Container+ "/contentmoderation.json";
-                                //using FileStream stream = File.OpenRead(url);
-                                //var v= await JsonSerializer.DeserializeAsync<string>(stream);
-
+                                
+                                var url = @"https://videoindexstorage.blob.core.windows.net/" + item.Data.Container + "/contentmoderation.json";
+                                using (WebClient wc = new WebClient())
+                                {
+                                     json = wc.DownloadString(url);
+                                }
+                                // Filtering JSON Data
+                                fragment = json;
+                                break;
                             }
                         }
                     }
                    
                 }
+                return fragment;
             }
             catch (Exception)
             {

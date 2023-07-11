@@ -3,6 +3,7 @@ using AzureMediaServices.Models;
 using AzureMediaServices.Repository;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AzureMediaServices.Controllers
@@ -13,11 +14,13 @@ namespace AzureMediaServices.Controllers
         AssetRepository assetRepository;
         EncodeRepository encodeRepository;
         IndexerRepository indexerRepository;
-        public AssetController(ILogger<AssetController> logger, AssetRepository asset, EncodeRepository encodeRepos, IndexerRepository indexerRepository)
+        ReportRepository _report;
+        public AssetController(ILogger<AssetController> logger, AssetRepository asset, EncodeRepository encodeRepos, IndexerRepository indexerRepository,ReportRepository report)
         {
             assetRepository = asset;
             _logger = logger;
             encodeRepository = encodeRepos;
+            _report = report;
             this.indexerRepository = indexerRepository;
         }
 
@@ -56,6 +59,20 @@ namespace AzureMediaServices.Controllers
         public ActionResult MetaDataForm()
         {
             return View();
+        }
+        public async Task<IActionResult> GetReport(string id)
+        {
+            try
+            {
+                string analyzeassetname = id.Replace("encodeing", "analyzer");
+                var rtval = await _report.ReadOnline(analyzeassetname);
+                return Json(rtval);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

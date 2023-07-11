@@ -28,7 +28,7 @@ namespace AzureMediaServices.Repository
         }
         public static int EncodingProgress {  get; private set; }
 
-        public async Task EncodeAsync(string FileSourceUri,string videoname="")
+        public async Task EncodeAsync(string FileSourceUri,string videoname="",string uniqueguid="")
         {
             const string OutputFolder = "Output";
             const string CustomTransform = "AdaptiveBitrate";
@@ -68,7 +68,7 @@ namespace AzureMediaServices.Repository
             string uniqueness = Guid.NewGuid().ToString()[..13];
             string jobName = $"job-{uniqueness}";
             string locatorName = $"locator-{uniqueness}";
-            string outputAssetName = $"{videoname}_output_Encodeing-{uniqueness}";
+            string outputAssetName = $"{videoname}_output_encodeing-{uniqueguid}";
 
             var transform = await CreateTransformAsync(mediaServicesAccount, CustomTransform);
 

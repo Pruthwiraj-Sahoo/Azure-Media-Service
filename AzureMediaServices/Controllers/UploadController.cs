@@ -60,8 +60,10 @@ namespace AzureMediaServices.Controllers
                         FileName = FileName.Replace(' ', '_');
                     }
 
-                    
-                    string assetName = FileName + "_primary_input-"+ Guid.NewGuid().ToString()[..13];
+                    string uniqueguid = Guid.NewGuid().ToString()[..13];
+
+
+                    string assetName = FileName + "_primary_input-"+ uniqueguid;
                     var blobName = "";
                     var containerName = "";
                     var asset = await client.Assets.CreateOrUpdateAsync(resourceGroup, accountName, assetName, new Asset());
@@ -90,12 +92,17 @@ namespace AzureMediaServices.Controllers
                         await containerClient.UploadBlobAsync(blobName, stream);
                     }
                     string uploadVideoUri = "https://videoindexstorage.blob.core.windows.net/" + containerName+ "/" + blobName;
-                    string rtMsg=await _analyzer.AnalyzeAsync(uploadVideoUri, FileName);
-                    if (rtMsg.Contains("_analyzer"))
-                    {
-                        await _report.ReadOnline(rtMsg);
-                    }
-                    await _encodeRepository.EncodeAsync(uploadVideoUri, FileName);
+
+                    var rtVal = _analyzer.AnalyzeAsync(uploadVideoUri, FileName, uniqueguid);
+
+                    await _encodeRepository.EncodeAsync(uploadVideoUri, FileName, uniqueguid);
+                   
+
+                    //if (rtMsg.Contains("_analyzer"))
+                    //{
+                    //    await _report.ReadOnline(rtMsg);
+                    //}
+
                     //await _uploadRepository.UploadAsync(uploadVideoUri);
                     //await _indexerRepository.IndexAsync(uploadVideoUri);
                     Console.WriteLine("Upload URI: " + uploadVideoUri);
