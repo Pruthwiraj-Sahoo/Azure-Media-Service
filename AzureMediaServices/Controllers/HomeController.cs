@@ -14,7 +14,10 @@ namespace AzureMediaServices.Controllers
             homeRepository = home;
             _logger = logger;
         }
-
+        /// <summary>
+        /// Get List of Thumnails
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
             homeRepository.ListOfThumbnailsAsync();
