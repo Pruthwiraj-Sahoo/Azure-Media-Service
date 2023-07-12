@@ -175,25 +175,7 @@
     <script>
         $(document).ready(function () {
             $("#btnStart").click(function () {
-                var indexedOrNot;
-            $.ajax({
-                url: "@Url.Action("indexedOrNot", "Index", new{id = @id})",
-                type: "GET",
-                success: function (data) {
-                    console.debug(data);
-                    //window.location.reload() 
-                    indexedOrNot = data;
-                }
-            });
-            console.debug(indexedOrNot);
-                if (indexedOrNot == "true")
-                    {
-                        console.debug("If Works!");
-                        alert("Already Indexed!");
-                       
-                    }
-
-                else {
+               
                     $.ajax({
                         url: "@Url.Action("StartIndexing", "Index", new{id = @id})",
                         type: "GET",
@@ -202,7 +184,7 @@
                             //window.location.reload()
                         }
                     });
-                }
+                
             });
             
         });

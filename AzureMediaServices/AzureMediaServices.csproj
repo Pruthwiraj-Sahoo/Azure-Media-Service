@@ -10,6 +10,8 @@
     <PackageReference Include="Azure.Identity" Version="1.9.0" />
     <PackageReference Include="Azure.ResourceManager.Media" Version="1.2.0" />
     <PackageReference Include="Azure.Storage.Blobs" Version="12.16.0" />
+    <PackageReference Include="Azure.Storage.Files.Shares" Version="12.1.0" />
+    <PackageReference Include="Azure.Storage.Queues" Version="12.2.0" />
     <PackageReference Include="Extended.Wpf.Toolkit" Version="4.5.0" />
     <PackageReference Include="Extensions.Configuration" Version="0.0.4" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.9" />
@@ -17,6 +19,7 @@
     <PackageReference Include="Microsoft.Azure.Cosmos.Table" Version="1.0.8" />
 	<PackageReference Include="Microsoft.Azure.Management.Media" Version="6.0.0" />
 	<PackageReference Include="Microsoft.Azure.Management.ResourceManager.Fluent" Version="1.38.1" />
+	<PackageReference Include="Microsoft.Extensions.Azure" Version="1.0.0" />
 	<PackageReference Include="Microsoft.Rest.ClientRuntime.Azure.Authentication" Version="2.4.1" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Services.Client" Version="16.205.1" />

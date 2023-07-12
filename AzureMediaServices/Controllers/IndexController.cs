@@ -33,7 +33,8 @@ namespace AzureMediaServices.Controllers
         //    ViewBag.Message = String.Format("Already Indexed!");
         //    return View();
         //}
-
+ 
+        
 
         public IActionResult StartIndexing(string id)
         {

@@ -1,5 +1,6 @@
 
 using AzureMediaServices.Repository;
+using Microsoft.Extensions.Azure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,11 @@ builder.Services.AddScoped<IndexerRepository>();
 builder.Services.AddScoped<AnalyzerRepository>();
 builder.Services.AddScoped<ReportRepository>();
 builder.Services.AddSignalR();
+builder.Services.AddAzureClients(clientBuilder =>
+{
+    clientBuilder.AddBlobServiceClient(builder.Configuration["AZURE_CONNECTION_STRING:blob"], preferMsi: true);
+    clientBuilder.AddQueueServiceClient(builder.Configuration["AZURE_CONNECTION_STRING:queue"], preferMsi: true);
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
